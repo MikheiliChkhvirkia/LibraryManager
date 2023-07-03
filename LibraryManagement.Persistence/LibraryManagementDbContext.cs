@@ -1,12 +1,13 @@
 ﻿using LibraryManagement.Applicaiton.Persistance;
 using LibraryManagement.Domain.Common.Contracts;
-using LibraryManagement.Persistence.Base;
+using LibraryManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using File = LibraryManagement.Domain.Entities.Files.File;
 
 namespace LibraryManagement.Persistence
 {
-    public class LibraryManagementDbContext : BaseDBContext, ILibraryManagementDbContext
+    public class LibraryManagementDbContext : DbContext, ILibraryManagementDbContext
     {
         public LibraryManagementDbContext(DbContextOptions<LibraryManagementDbContext> options) : base(options) { }
         protected void OnModelCreating(ModelBuilder modelBuilder, Assembly assembly)
@@ -39,6 +40,18 @@ namespace LibraryManagement.Persistence
             }
             return base.SaveChangesAsync(cancellationToken);
         }
+
+        #region Book
+        public virtual DbSet<Book> Books { get; set; }
+        #endregion
+
+        #region Author
+        public virtual DbSet<Author> Authors { get; set; }
+        #endregion
+
+        #region File
+        public virtual DbSet<File> Files { get; set; }
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

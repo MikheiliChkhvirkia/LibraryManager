@@ -7,4 +7,6 @@
         /// </summary>
         public T Id { get; set; }
     }
+    public abstract class BaseEntity : BaseEntity<int>
+    { }
 }

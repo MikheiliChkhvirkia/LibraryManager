@@ -36,4 +36,8 @@ namespace LibraryManagement.Domain.Common.Entities
             DeleteDate = deleteDate;
         }
     }
+
+
+    public abstract class TrackedEntity : TrackedEntity<int>
+    { }
 }
