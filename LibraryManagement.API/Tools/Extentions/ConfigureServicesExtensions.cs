@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using ProjectX.Application.Tools.Extensions;
 using ProjectX.Persistence.Tools.Extensions;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Reflection;
 using System.Text.Json;
 
 namespace LibraryManagement.API.Tools.Extensions
@@ -16,7 +15,7 @@ namespace LibraryManagement.API.Tools.Extensions
         public static void ConfigureServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddControllers()
-                .AddJsonOptions(options => 
+                .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
                     options.JsonSerializerOptions.WriteIndented = true;

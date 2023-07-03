@@ -1,6 +1,6 @@
+using LibraryManagement.API.Settings.BaseController;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using LibraryManagement.API.Settings.BaseController;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace LibraryManagement.Controllers

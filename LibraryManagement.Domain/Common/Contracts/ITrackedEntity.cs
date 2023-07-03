@@ -1,4 +1,4 @@
-﻿namespace  LibraryManagement.Domain.Common.Contracts
+﻿namespace LibraryManagement.Domain.Common.Contracts
 {
     public interface ITrackedEntity
     {

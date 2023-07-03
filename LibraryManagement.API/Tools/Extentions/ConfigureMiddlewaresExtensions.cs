@@ -25,7 +25,7 @@ namespace LibraryManagement.API.Tools.Extentions
                 .SetIsOriginAllowed(origin => true)
                 .AllowCredentials()
             );
-            
+
             app.UseEndpoints(app.Environment.IsProduction());
             app.UseSwagger(assembly);
         }
@@ -52,7 +52,7 @@ namespace LibraryManagement.API.Tools.Extentions
                 app.UsePathBase($"/{PathBase}");
             }
         }
-        
+
         public static void UseEndpoints(this IApplicationBuilder app, bool isProduction)
         {
             if (isProduction)
@@ -88,7 +88,7 @@ namespace LibraryManagement.API.Tools.Extentions
                     });
                 });
             }
-            
+
         }
         #endregion
     }
