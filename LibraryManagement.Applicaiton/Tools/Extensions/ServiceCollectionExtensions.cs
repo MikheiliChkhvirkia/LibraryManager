@@ -1,8 +1,8 @@
-﻿using FluentValidation;
+﻿using LibraryManagement.FileManager.Tools.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace ProjectX.Application.Tools.Extensions
+namespace LibraryManagement.Application.Tools.Extensions
 {
     public static class ServiceCollectionExtensions
     {
@@ -10,7 +10,7 @@ namespace ProjectX.Application.Tools.Extensions
         {
             var assembly = Assembly.GetExecutingAssembly();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
-            services.AddValidatorsFromAssembly(assembly);
+            services.AddFileManager();
         }
     }
 }

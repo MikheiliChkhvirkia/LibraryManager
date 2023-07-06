@@ -1,11 +1,10 @@
 ﻿using LibraryManagement.Applicaiton.Persistance;
-using LibraryManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace ProjectX.Persistence.Tools.Extensions
+namespace LibraryManagement.Persistence.Tools.Extensions
 {
     public static class ServiceCollectionExtensions
     {

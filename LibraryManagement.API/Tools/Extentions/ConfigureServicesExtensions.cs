@@ -1,10 +1,10 @@
 ﻿using LibraryManagement.API.Settings.Swagger;
+using LibraryManagement.Persistence.Tools.Extensions;
+using LibraryManagement.Application.Tools.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
-using ProjectX.Application.Tools.Extensions;
-using ProjectX.Persistence.Tools.Extensions;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Json;
 

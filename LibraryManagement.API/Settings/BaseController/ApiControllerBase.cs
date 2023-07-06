@@ -7,6 +7,7 @@ namespace LibraryManagement.API.Settings.BaseController
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
     public abstract class ApiControllerBase : ControllerBase
     {
