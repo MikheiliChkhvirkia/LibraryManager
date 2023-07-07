@@ -43,6 +43,7 @@ namespace LibraryManagement.Persistence
 
         #region Book
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<BookRating> BookRatings { get; set; }
         #endregion
 
         #region Author

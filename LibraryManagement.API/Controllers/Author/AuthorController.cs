@@ -13,7 +13,7 @@ namespace LibraryManagement.API.Controllers.Author
         : base(mediator) { }
 
         [HttpGet]
-        public Task<List<GetAuthorsQueryResposne>> GetAuthor([FromQuery] GetAuthorsQuery request)
+        public Task<List<GetAuthorsQueryResponse>> GetAuthor([FromQuery] GetAuthorsQuery request)
             => mediator.Send(request);
 
         [HttpPatch("{Id}/update")]

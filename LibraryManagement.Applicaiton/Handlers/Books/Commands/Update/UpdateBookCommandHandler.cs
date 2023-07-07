@@ -14,7 +14,7 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Update
         }
         public async Task Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
-            Book book = await db.Books.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken)
+            Book book = await db.Books.FirstOrDefaultAsync(b => b.Id == request.Id && b.DeleteDate == null, cancellationToken: cancellationToken)
                 ?? throw new Exception($"Invalid Book Id: {request.Id}");
 
             UpdateBookProperties(book, request.Model);
@@ -39,11 +39,6 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Update
             if (request.ReleaseDate.HasValue && book.ReleaseDate != request.ReleaseDate.Value)
             {
                 book.ReleaseDate = request.ReleaseDate.Value;
-            }
-
-            if (request.IsTaken.HasValue && book.IsBorrowed != request.IsTaken.Value)
-            {
-                book.IsBorrowed = request.IsTaken.Value;
             }
         }
         #endregion

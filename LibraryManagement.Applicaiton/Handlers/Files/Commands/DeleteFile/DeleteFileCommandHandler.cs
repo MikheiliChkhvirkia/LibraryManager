@@ -17,7 +17,7 @@ namespace LibraryManagement.Applicaiton.Handlers.Files.Commands.DeleteFile
 
         public async Task Handle(DeleteFileCommand request, CancellationToken cancellationToken)
         {
-            File file = await db.Files.FirstOrDefaultAsync(f => f.Id == request.FileId, cancellationToken: cancellationToken)
+            File file = await db.Files.FirstOrDefaultAsync(f => f.Id == request.FileId && f.DeleteDate == null, cancellationToken: cancellationToken)
                 ?? throw new Exception($"Invalid File Id {request.FileId}");
 
             file.Delete();

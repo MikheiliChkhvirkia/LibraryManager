@@ -18,7 +18,7 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.AddBookAndAuthor
             File? file = null;
             if (request.FileUniqueId != null)
             {
-                file = await db.Files.FirstOrDefaultAsync(x => x.UniqueId == request.FileUniqueId, cancellationToken: cancellationToken)
+                file = await db.Files.FirstOrDefaultAsync(f => f.UniqueId == request.FileUniqueId && f.DeleteDate == null, cancellationToken: cancellationToken)
                 ?? throw new Exception($"File : {request.FileUniqueId} does not exist");
             }
 

@@ -5,6 +5,6 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.BorrowBook
     public class BorrowBookCommand : IRequest
     {
         public int Id { get; set; }
-        public bool IsReturning { get; set; }
+        public bool IsBorrowing { get; set; }
     }
 }

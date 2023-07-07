@@ -9,6 +9,7 @@ namespace LibraryManagement.Applicaiton.Persistance
     {
         #region Book
         DbSet<Book> Books { get; set; }
+        DbSet<BookRating> BookRatings { get; set; }
         #endregion
 
         #region Author

@@ -8,11 +8,12 @@ namespace LibraryManagement.Domain.Entities
         public string? Title { get; set; }
         public string? Description { get; set; }
         public Guid? FileId { get; set; }
-        public int Rating { get; set; }
+        public double Rating { get; set; }
         public DateTime ReleaseDate { get; set; }
         public bool IsBorrowed { get; set; }
 
         public virtual File File { get; set; }
         public virtual ICollection<Author>? Authors { get; set; }
+        public virtual ICollection<BookRating>? BookRatings { get; set; }
     }
 }

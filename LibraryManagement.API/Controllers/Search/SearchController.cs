@@ -1,6 +1,6 @@
 ﻿using LibraryManagement.API.Settings.BaseController;
 using LibraryManagement.Applicaiton.Common;
-using LibraryManagement.Applicaiton.Handlers.Books.Queries.GetBooks;
+using LibraryManagement.Applicaiton.Handlers.Search.Queries.GetSuggestions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +12,7 @@ namespace LibraryManagement.API.Controllers.Search
         : base(mediator) { }
 
         [HttpGet("books-and-authors")]
-        public Task<PagedData<GetBooksQueryResponse>> Get([FromQuery] GetBooksQuery request)
+        public Task<PagedData<GetBooksQueryResponse>> Get([FromQuery] GetSuggestionQuery request)
             => mediator.Send(request);
     }
 }

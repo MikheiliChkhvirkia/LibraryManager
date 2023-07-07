@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Applicaiton.Persistance;
 using LibraryManagement.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.BorrowBook
 {
@@ -15,23 +16,14 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.BorrowBook
 
         public async Task Handle(BorrowBookCommand request, CancellationToken cancellationToken)
         {
-            Book book = await db.Books.FindAsync(request.Id)
+            Book book = await db.Books.FirstOrDefaultAsync(b => b.Id == request.Id && b.DeleteDate == null)
                 ?? throw new Exception($"Invalid Book Id: {request.Id}");
 
-            if (book.IsBorrowed == request.IsReturning)
-            {
-                if (book.IsBorrowed)
-                {
-                    throw new Exception($"Book is already borrowed");
-                }
-
-                book.IsBorrowed = true;
-                await db.SaveChangesAsync(cancellationToken);
-            }
-            else
-            {
+            if (book.IsBorrowed == request.IsBorrowing)
                 throw new Exception($"Invalid operation. Book status does not match the request.");
-            }
+
+            book.IsBorrowed = request.IsBorrowing;
+            await db.SaveChangesAsync(cancellationToken);
         }
 
     }

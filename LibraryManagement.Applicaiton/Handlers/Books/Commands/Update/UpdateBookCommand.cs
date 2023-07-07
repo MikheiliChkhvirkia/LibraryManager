@@ -12,6 +12,5 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Update
         public string? Title { get; set; }
         public string? Description { get; set; }
         public DateTime? ReleaseDate { get; set; }
-        public bool? IsTaken { get; set; }
     }
 }

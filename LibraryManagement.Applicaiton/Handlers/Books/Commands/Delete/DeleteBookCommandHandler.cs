@@ -13,8 +13,8 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Delete
         }
         public async Task Handle(DeleteBookCommand request, CancellationToken cancellationToken)
         {
-            var book = await db.Books.FirstOrDefaultAsync(b => b.Id == request.Id)
-                ?? throw new Exception($"Invalid Id: {request.Id}");
+            var book = await db.Books.FirstOrDefaultAsync(b => b.Id == request.Id && b.DeleteDate == null, cancellationToken: cancellationToken)
+                ?? throw new Exception($"Invalid Book Id: {request.Id}");
 
             book.Delete();
 

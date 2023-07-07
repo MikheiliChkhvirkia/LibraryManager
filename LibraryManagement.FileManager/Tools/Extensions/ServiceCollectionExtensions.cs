@@ -9,7 +9,7 @@ namespace LibraryManagement.FileManager.Tools.Extensions
         public static void AddFileManager(this IServiceCollection services)
         {
             services.AddScoped<IFileUploadService, FileUploadService>();
-            services.AddScoped<IFileDeleteService, FileUploadService>();
+            services.AddScoped<IFileDeleteService, FileDeleteService>();
         }
     }
 }
