@@ -13,7 +13,7 @@ namespace LibraryManagement.Domain.Entities.Files
         {
             Name = name;
             Extension = extension;
-            DownloadUrl = Url+downloadUrl;
+            DownloadUrl = Url + downloadUrl;
             MimeType = mimeType;
             LengthInBytes = lengthInBytes;
             UniqueId = uniqueId;

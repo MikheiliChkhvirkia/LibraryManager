@@ -16,7 +16,8 @@ namespace LibraryManagement.Persistence.Configuration.Books
 
             builder.HasOne(b => b.File)
                 .WithOne(f => f.Book)
-                .HasForeignKey<Book>(b => b.FileId);
+                .HasForeignKey<Book>(b => b.FileId)
+                .IsRequired(false);
         }
     }
 }

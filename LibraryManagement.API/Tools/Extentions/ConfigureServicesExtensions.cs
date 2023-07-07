@@ -1,6 +1,6 @@
 ﻿using LibraryManagement.API.Settings.Swagger;
-using LibraryManagement.Persistence.Tools.Extensions;
 using LibraryManagement.Application.Tools.Extensions;
+using LibraryManagement.Persistence.Tools.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Diagnostics.HealthChecks;

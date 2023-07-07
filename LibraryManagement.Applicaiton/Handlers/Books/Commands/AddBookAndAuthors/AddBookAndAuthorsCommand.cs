@@ -15,8 +15,7 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.AddBookAndAuthor
         public DateTime ReleaseDate { get; set; }
         public bool IsTaken { get; set; }
 
-        [Required]
-        public Guid FileUniqueId { get; set; }
+        public Guid? FileUniqueId { get; set; }
 
         public List<AuthorModel> Authors { get; set; }
     }

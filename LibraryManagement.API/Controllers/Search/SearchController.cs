@@ -14,6 +14,5 @@ namespace LibraryManagement.API.Controllers.Search
         [HttpGet("books-and-authors")]
         public Task<PagedData<GetBooksQueryResponse>> Get([FromQuery] GetBooksQuery request)
             => mediator.Send(request);
-
     }
 }

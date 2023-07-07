@@ -4,7 +4,7 @@ namespace LibraryManagement.Domain.Entities.Files
 {
     public partial class FileType : BaseEntity
     {
-        public FileType() 
+        public FileType()
             => Files = new HashSet<File>();
         public int Code { get; set; }
         /// <summary>

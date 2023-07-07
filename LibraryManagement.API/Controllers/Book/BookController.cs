@@ -1,5 +1,6 @@
 using LibraryManagement.API.Settings.BaseController;
 using LibraryManagement.Applicaiton.Handlers.Books.Commands.AddBookAndAuthors;
+using LibraryManagement.Applicaiton.Handlers.Books.Commands.BorrowBook;
 using LibraryManagement.Applicaiton.Handlers.Books.Commands.Delete;
 using LibraryManagement.Applicaiton.Handlers.Books.Commands.Update;
 using MediatR;
@@ -12,16 +13,28 @@ namespace LibraryManagement.Controllers
         public BookController(IMediator mediator)
         : base(mediator) { }
 
-        [HttpPost("add")]
+        [HttpPost]
         public Task AddBookAndAuthors([FromBody] AddBookAndAuthorsCommand request)
             => mediator.Send(request);
 
-        [HttpPatch("update")]
-        public Task UpdateBook([FromBody] UpdateBookCommand request)
-            => mediator.Send(request);
+        [HttpPatch("{Id}/Update")]
+        public Task UpdateBook(int Id, [FromBody] UpdateBookCommandModel request)
+            => mediator.Send(new UpdateBookCommand
+            {
+                Id = Id,
+                Model = request
+            });
 
-        [HttpDelete("delete")]
+        [HttpDelete]
         public Task DeleteBook([FromBody] DeleteBookCommand request)
             => mediator.Send(request);
+
+        [HttpPatch("{Id}/Borrow-Return")]
+        public Task BorrowBook(int id, [FromQuery] bool isReturning = false)
+            => mediator.Send(new BorrowBookCommand
+            {
+                Id = id,
+                IsReturning = isReturning
+            });
     }
 }

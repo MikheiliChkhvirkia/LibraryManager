@@ -1,7 +1,7 @@
 ﻿using LibraryManagement.Applicaiton.Persistance;
 using LibraryManagement.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Update
 {
@@ -15,16 +15,16 @@ namespace LibraryManagement.Applicaiton.Handlers.Books.Commands.Update
         public async Task Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
             Book book = await db.Books.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken)
-                ?? throw new Exception($"Invalid Id: {request.Id}");
+                ?? throw new Exception($"Invalid Book Id: {request.Id}");
 
-            UpdateBookProperties(book, request);
+            UpdateBookProperties(book, request.Model);
 
             await db.SaveChangesAsync(cancellationToken);
         }
 
         #region Private 
 
-        private static void UpdateBookProperties(Book book, UpdateBookCommand request)
+        private static void UpdateBookProperties(Book book, UpdateBookCommandModel? request)
         {
             if (!string.IsNullOrEmpty(request.Title) && book.Title != request.Title)
             {
